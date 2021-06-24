@@ -51,6 +51,8 @@ app.use(session({
         mongoUrl: dbUrl,
         secret,
         touchAfter: 24 * 60 * 60
+    }).on("error", function(e) {
+        console.log('Session store error', e)
     }),
     secret: secret,
     resave: false,
